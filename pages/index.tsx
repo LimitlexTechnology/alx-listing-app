@@ -1,12 +1,12 @@
 import Head from "next/head";
 import Button from "../components/common/Button";
-import { FILTER_PILLS, HERO_IMAGE } from "@/constants";
-import PropertyCard from "@/components/property/PropertyCard";
-import Pill from "@/components/common/Pill";
+import { FILTER_PILLS, HERO_IMAGE, PROPERTYLISTINGSAMPLE } from "../constants";
+import PropertyCard from "../components/property/PropertyCard";
+import Pill from "../components/common/Pill";
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { PropertyProps } from "@/interfaces";
-import { PROPERTYLISTINGSAMPLE } from "@/constants";
+import { PropertyProps } from "../interfaces";
+// using local sample data
 
 export default function Home() {
   const [selectedFilters, setSelectedFilters] = useState<string[]>(["All"]);
@@ -65,7 +65,7 @@ export default function Home() {
           <div className="hidden md:flex w-full justify-between items-center">
             {/* Pills Left - restrict width or show few */}
             <div className="flex items-center gap-2.5 max-w-fit overflow-x-hidden whitespace-nowrap xl:hidden">
-              {FILTER_PILLS.slice(0, 3).map((title) => (
+              {FILTER_PILLS.slice(0, 3).map((title: string) => (
                 <Pill
                   key={title}
                   title={title}
@@ -85,7 +85,7 @@ export default function Home() {
             </div>
 
             <div className="hidden xl:flex items-center gap-2.5 max-w-fit overflow-x-hidden flex-wrap">
-              {FILTER_PILLS.map((title) => (
+              {FILTER_PILLS.map((title: string) => (
                 <Pill
                   key={title}
                   title={title}
