@@ -31,7 +31,14 @@ The goal of this project is to provide a clean, efficient, and modular foundatio
 
 Follow these steps to run the project locally on your machine.
 
-### 1. **Clone the Repository**
+### 1. **Install Dependencies**
 ```bash
-https://github.com/LimitlexTechnology/alx-listing-app.git
-cd alx-listing-app
+npm install
+```
+
+### 2. **Run the Development Server**
+```bash
+npm run dev
+```
+
+Open `http://localhost:3000` in your browser to view the app.

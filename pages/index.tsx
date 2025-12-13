@@ -5,8 +5,8 @@ import PropertyCard from "@/components/property/PropertyCard";
 import Pill from "@/components/common/Pill";
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import axios from "axios";
 import { PropertyProps } from "@/interfaces";
+import { PROPERTYLISTINGSAMPLE } from "@/constants";
 
 export default function Home() {
   const [selectedFilters, setSelectedFilters] = useState<string[]>(["All"]);
@@ -25,28 +25,7 @@ export default function Home() {
     }
   };
 
-  const [properties, setProperties] = useState<PropertyProps[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchProperties = async () => {
-      try {
-        const response = await axios.get(
-          `${process.env.NEXT_PUBLIC_API_BASE_URL}/properties`
-        );
-        setProperties(response.data);
-      } catch (error) {
-        console.error("Error fetching properties:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchProperties();
-  }, []);
-
-  if (loading) {
-    return <p>Loading...</p>;
-  }
+  const [properties] = useState<PropertyProps[]>(PROPERTYLISTINGSAMPLE as PropertyProps[]);
   return (
     <>
       <Head>
